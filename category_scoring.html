@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category-Wise Scoring</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #333;
+            overflow: hidden;
+        }
+        .container {
+            width: 90%;
+            height: 80vh;
+            max-width: 1200px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            font-size: 2em;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+            position: relative;
+        }
+        .logo-left, .logo-right {
+            position: absolute;
+            top: 0;
+            width: 50px;
+            height: 50px;
+        }
+        .logo-left {
+            left: 0;
+        }
+        .logo-right {
+            right: 0;
+        }
+        .subtitle {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .table-container {
+            flex: 1;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            position: relative;
+            height: 100%;
+        }
+        table th, table td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+            white-space: nowrap;
+        }
+        table th {
+            background-color: #f39c12;
+            color: #ffffff;
+            font-weight: 700;
+            text-transform: uppercase;
+            position: sticky;
+            top: 0;
+            z-index: 2;
+        }
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        table tr.total-row {
+            background-color: #f1c40f;
+            font-weight: 700;
+            position: sticky;
+            bottom: 0;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="logo-left.png" alt="Logo Left" class="logo-left">
+            Category-Wise Scoring
+            <img src="logo-right.png" alt="Logo Right" class="logo-right">
+        </div>
+        <div class="subtitle">Talent Competition</div>
+        <div class="table-container">
+            <table id="leaderboardTable">
+                <!-- Table content will be inserted dynamically -->
+            </table>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const apiKey = 'AIzaSyBBCuJHd2HJ679ZQWNe3jhQOk-61tXW-sE';  // Replace with your actual API key
+            const sheetID = '1i3OGdne9Hok1th-I3UMtXgDGOcxGsXDRHZx9A6j_CYw'; // Replace with your actual sheet ID
+            const range = 'CategorywiseScoring!A1:E26';  // Modify if your data range differs
+            const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values/${range}?key=${apiKey}`;
+
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (!data.values || data.values.length <= 1) {
+                        console.error('No data found or only header row present.');
+                        return;
+                    }
+
+                    const rows = data.values;
+                    const table = document.getElementById('leaderboardTable');
+
+                    // Create table header
+                    const headerRow = document.createElement('tr');
+                    rows[0].forEach(headerText => {
+                        const th = document.createElement('th');
+                        th.textContent = headerText;
+                        headerRow.appendChild(th);
+                    });
+                    table.appendChild(headerRow);
+
+                    // Create table rows (including total row)
+                    rows.slice(1).forEach((row, index) => {
+                        const tr = document.createElement('tr');
+                        if (index === rows.length - 2) {
+                            tr.classList.add('total-row');
+                        }
+                        row.forEach(cellText => {
+                            const td = document.createElement('td');
+                            td.textContent = cellText;
+                            tr.appendChild(td);
+                        });
+                        table.appendChild(tr);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching the data:', error);
+                });
+        });
+    </script>
+</body>
+</html>
