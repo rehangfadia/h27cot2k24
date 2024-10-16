@@ -10,7 +10,7 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background: url('./bg.gif') no-repeat center center fixed;
+            background: url('./table_image.png') no-repeat center center fixed;
             background-size: cover;
             display: flex;
             justify-content: center;
@@ -64,7 +64,8 @@
             display: flex;
             align-items: center;
             padding: 20px;
-            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            background: url('table_image.png') no-repeat center center;
+            background-size: cover;
             border-radius: 15px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
             font-size: 1.3em;
@@ -137,7 +138,7 @@
 
                         const teamIcon = document.createElement('div');
                         teamIcon.classList.add('team-icon');
-                        teamIcon.innerHTML = `<img src="team-icon-${index + 1}.png" alt="Team Icon" style="width: 100%; height: 100%; object-fit: cover;">`;
+                        teamIcon.innerHTML = `<img src="${getTeamIconUrl(row[0])}" alt="Team Icon" style="width: 100%; height: 100%; object-fit: cover;">`;
 
                         const teamName = document.createElement('div');
                         teamName.classList.add('team-name');
@@ -157,6 +158,11 @@
                 .catch(error => {
                     console.error('Error fetching the data:', error);
                 });
+
+            function getTeamIconUrl(teamName) {
+                // Replace with logic to dynamically fetch icons based on team name
+                return `team-icons/${teamName.toLowerCase().replace(/\s+/g, '-')}.png`;
+            }
         });
     </script>
 </body>
