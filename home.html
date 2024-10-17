@@ -6,11 +6,12 @@
     <title>H27 Clash of Talents - Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f0f0f0;
+            font-family: 'Poppins', sans-serif;
+            background: url('background-image.jpg') no-repeat center center fixed;
+            background-size: cover;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -22,37 +23,39 @@
         .container {
             width: 90%;
             max-width: 1200px;
-            padding: 30px;
-            background: #ffffff;
+            padding: 50px;
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
             text-align: center;
             position: relative;
         }
+        .logo-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
         .logo-left {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 100px;
+            width: 120px;
         }
         .logo-right {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 100px;
+            width: 120px;
         }
         .header {
             font-size: 3em;
             font-weight: 700;
-            color: #f39c12;
+            color: #d35400;
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 3px;
         }
         .subtitle {
             font-size: 1.5em;
-            color: #555;
+            color: #333;
             margin-bottom: 40px;
+            line-height: 1.8;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
         }
         .nav-buttons {
             display: flex;
@@ -61,7 +64,7 @@
         }
         .nav-button {
             padding: 15px 30px;
-            background-color: #f39c12;
+            background-color: #e67e22;
             color: #ffffff;
             border: none;
             border-radius: 10px;
@@ -71,7 +74,7 @@
             transition: background-color 0.3s, transform 0.3s;
         }
         .nav-button:hover {
-            background-color: #d87d0c;
+            background-color: #ca6b19;
             transform: scale(1.05);
         }
         a {
@@ -82,8 +85,10 @@
 </head>
 <body>
     <div class="container">
-        <img src="logo-left.png" alt="Organizer Logo" class="logo-left">
-        <img src="logo-right.png" alt="Event Logo" class="logo-right">
+        <div class="logo-container">
+            <img src="logo-left.png" alt="Organizer Logo" class="logo-left">
+            <img src="logo-right.png" alt="Event Logo" class="logo-right">
+        </div>
         <div class="header">H27 Clash of Talents</div>
         <div class="subtitle">Welcome to the H27 Clash of Talents, a prestigious competition organized by Shri Harsol Sattavis Young Group Mumbai. This grand event celebrates the creativity and skills of participants in five talent categories: Speech, Singing, Acting, Dancing, and Instrument performance. The competition features a diverse array of 15 categories, bringing together passionate and talented individuals from different walks of life. Join us as we witness the remarkable talent and dedication of these performers!</div>
         <div class="nav-buttons">
