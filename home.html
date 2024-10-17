@@ -22,11 +22,11 @@
         }
         .container {
             width: 90%;
-            max-width: 1200px;
-            padding: 50px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            max-width: 1000px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.4);
             text-align: center;
             position: relative;
         }
@@ -34,48 +34,47 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
-        .logo-left {
-            width: 120px;
-        }
-        .logo-right {
-            width: 120px;
+        .logo-left, .logo-right {
+            width: 100px;
+            height: auto;
         }
         .header {
-            font-size: 3em;
+            font-size: 2.8em;
             font-weight: 700;
-            color: #d35400;
+            color: #e74c3c;
             margin-bottom: 20px;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
         }
         .subtitle {
-            font-size: 1.5em;
-            color: #333;
-            margin-bottom: 40px;
+            font-size: 1.4em;
+            color: #2c3e50;
+            margin-bottom: 30px;
             line-height: 1.8;
-            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
         }
         .nav-buttons {
             display: flex;
             justify-content: center;
             gap: 20px;
+            flex-wrap: wrap;
         }
         .nav-button {
-            padding: 15px 30px;
+            padding: 15px 25px;
             background-color: #e67e22;
             color: #ffffff;
             border: none;
             border-radius: 10px;
-            font-size: 1.2em;
-            font-weight: 700;
+            font-size: 1.1em;
+            font-weight: 600;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.3s;
         }
         .nav-button:hover {
-            background-color: #ca6b19;
-            transform: scale(1.05);
+            background-color: #d35400;
+            transform: translateY(-3px);
         }
         a {
             color: inherit;
