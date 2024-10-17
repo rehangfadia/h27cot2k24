@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Category-Wise Scoring</title>
+    <title>H27 Clash of Talents - Category-Wise Scores</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -21,52 +21,71 @@
         }
         .container {
             width: 90%;
-            height: 80vh;
             max-width: 1200px;
-            padding: 20px;
+            padding: 30px;
             background: #ffffff;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-        .header {
-            font-size: 2em;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 10px;
             text-align: center;
             position: relative;
         }
-        .logo-left, .logo-right {
-            position: absolute;
-            top: 0;
-            width: 50px;
-            height: 50px;
-        }
         .logo-left {
-            left: 0;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100px;
         }
         .logo-right {
-            right: 0;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 100px;
+        }
+        .header {
+            font-size: 3em;
+            font-weight: 700;
+            color: #f39c12;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
         }
         .subtitle {
-            font-size: 1.2em;
+            font-size: 1.5em;
             color: #555;
-            margin-bottom: 20px;
-            text-align: center;
+            margin-bottom: 40px;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .nav-button {
+            padding: 15px 30px;
+            background-color: #f39c12;
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .nav-button:hover {
+            background-color: #d87d0c;
+            transform: scale(1.05);
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
         }
         .table-container {
-            flex: 1;
+            margin-top: 40px;
             overflow-y: auto;
             border: 1px solid #ddd;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            position: relative;
-            height: 100%;
         }
         table th, table td {
             padding: 12px;
@@ -97,12 +116,15 @@
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <img src="logo-left.png" alt="Logo Left" class="logo-left">
-            Category-Wise Scoring
-            <img src="logo-right.png" alt="Logo Right" class="logo-right">
+        <img src="logo-left.png" alt="Organizer Logo" class="logo-left">
+        <img src="logo-right.png" alt="Event Logo" class="logo-right">
+        <div class="header">Category-Wise Scores</div>
+        <div class="subtitle">H27 Clash of Talents</div>
+        <div class="nav-buttons">
+            <a href="individual_category_scores.html" target="_blank"><button class="nav-button">Category-Wise Scores</button></a>
+            <a href="team_scores.html" target="_blank"><button class="nav-button">Team Scores Leaderboard</button></a>
+            <a href="home.html" target="_blank"><button class="nav-button">Home</button></a>
         </div>
-        <div class="subtitle">Talent Competition</div>
         <div class="table-container">
             <table id="leaderboardTable">
                 <!-- Table content will be inserted dynamically -->
